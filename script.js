@@ -1,12 +1,19 @@
 $(function() { // Makes sure that your function is called once all the DOM elements of the page are ready to be used.
     
     // Called function to update the name, happiness, and weight of our pet in our HTML
-    checkAndUpdatePetInfoInHtml();
+    //checkAndUpdatePetInfoInHtml();
   
     // When each button is clicked, it will "call" function for that button (functions are below)
-    $('.treat-button').click(clickedTreatButton);
+    //$('.treat-button').click(clickedTreatButton);
     $('.play-button').click(clickedPlayButton);
     $('.exercise-button').click(clickedExerciseButton);
+  
+    const treatButton = document.querySelector('.treat-button');
+
+treatButton.addEventListener('click', event => {
+  treatButton.innerHTML = `Click count: ${event.detail}`;
+});
+  
     
   })
   
