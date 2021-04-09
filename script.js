@@ -43,7 +43,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       // Add conditional so if weight is lower than zero, set it back to zero
     }
     
-    // Updates your HTML with the current values in your pet_info dictionary
+    // Updates your HTML with the current values in your pet_info object
     function updatePetInfoInHtml() {
       $('.name').text(pet_info['name']);
       $('.weight').text(pet_info['weight']);
