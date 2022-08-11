@@ -45,6 +45,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
     
     function clickedPlayButton() {
+
+      document.getElementById('txt').innerHTML = pet_info.name + " played with its friends.";
       // Increase pet happiness
       pet_info.happiness++;
       // Decrease pet weight
@@ -53,6 +55,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
     
     function clickedExerciseButton() {
+      document.getElementById('txt').innerHTML = pet_info.name + " ran around for some excercise.";
       // Decrease pet happiness
       pet_info.happiness--;
       // Decrease pet weight
@@ -100,59 +103,63 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedUseMoveButton(){
       var selectedValue = document.getElementById("pokemoves").value;
       console.log(selectedValue);
-      switch(selectedValue){
-        case pet_info.moves[0]:
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ".";
-          // pet_info.happiness+= 1; //bugged
-          pet_info.happiness++;
-          pet_info.weight-= 1;
-          break;
-        case pet_info.moves[1]:
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It hit its mark without missing.";
-          //pet_info.happiness+= 2; // buggged
-          pet_info.happiness++;
-          pet_info.happiness++;
-          pet_info.weight-= 2;
-          break;
-        case pet_info.moves[2]:
-          var quote=""
-          if(pet_info.happiness>=14){
-            quote = ". It attacked with all its might and happily returned!"
-            // pet_info.happiness+= 3; //bugged 
-            pet_info.happiness++;
-            pet_info.happiness++;
+      if (pet_info.weight <=5){
+      document.getElementById('txt').innerHTML = pet_info.name + " might not have enough strength to use that move...";
+      }else{
+        switch(selectedValue){
+          case pet_info.moves[0]:
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ".";
+            // pet_info.happiness+= 1; //bugged
             pet_info.happiness++;
             pet_info.weight-= 1;
-          }else{
-            quote = ". It attacked and came back."
-            // pet_info.happiness+= 1; //bugged
-            pet_info.happiness++
-            pet_info.weight-= 2;
-          }
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + quote;
             break;
-        case pet_info.moves[3]:
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue+" .It caught a huge wave!";
-          // pet_info.happiness+= 2; //bugged
-          pet_info.happiness++;
-          pet_info.happiness++;
-          pet_info.weight-= 2;
-          break;
-        case pet_info.moves[4]:
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It used all its strength to unleash a strong attack!";
-          // pet_info.happiness+= 1; //bugged
-          pet_info.happiness++;
-          pet_info.weight-= 5;
-          break;
-        case pet_info.moves[5]:
-          document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It sleeps cozily and wakes up refreshed.";
-          // pet_info.happiness+= 4; //bugged
-          pet_info.happiness++;
-          pet_info.happiness++;
-          pet_info.happiness++;
-          pet_info.happiness++;
-          pet_info.weight-= 0;
-          break;
+          case pet_info.moves[1]:
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It hit its mark without missing.";
+            //pet_info.happiness+= 2; // buggged
+            pet_info.happiness++;
+            pet_info.happiness++;
+            pet_info.weight-= 2;
+            break;
+          case pet_info.moves[2]:
+            var quote=""
+            if(pet_info.happiness>=14){
+              quote = ". It attacked with all its might and happily returned!"
+              // pet_info.happiness+= 3; //bugged 
+              pet_info.happiness++;
+              pet_info.happiness++;
+              pet_info.happiness++;
+              pet_info.weight-= 1;
+            }else{
+              quote = ". It attacked and came back."
+              // pet_info.happiness+= 1; //bugged
+              pet_info.happiness++
+              pet_info.weight-= 2;
+            }
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + quote;
+              break;
+          case pet_info.moves[3]:
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue+" .It caught a huge wave!";
+            // pet_info.happiness+= 2; //bugged
+            pet_info.happiness++;
+            pet_info.happiness++;
+            pet_info.weight-= 2;
+            break;
+          case pet_info.moves[4]:
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It used all its strength to unleash a strong attack!";
+            // pet_info.happiness+= 1; //bugged
+            pet_info.happiness++;
+            pet_info.weight-= 5;
+            break;
+          case pet_info.moves[5]:
+            document.getElementById('txt').innerHTML = pet_info.name + " used "+selectedValue + ". It sleeps cozily and wakes up refreshed.";
+            // pet_info.happiness+= 4; //bugged
+            pet_info.happiness++;
+            pet_info.happiness++;
+            pet_info.happiness++;
+            pet_info.happiness++;
+            pet_info.weight-= 0;
+            break;
+        }
       }
       checkAndUpdatePetInfoInHtml();  
     }
