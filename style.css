@@ -7,6 +7,12 @@
     font-family: helvetica, arial, sans-serif;
     margin: 25px;
   }
+
+  .img-bg {
+    background-image: url(https://cdn.glitch.global/92b31d23-a616-4956-a053-038623955d33/grassfield2.jpg?v=1660187472089);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   
   main {
     display:block;
@@ -19,6 +25,7 @@
   
   h1 {
     font-weight: bold;
+    text-shadow:0px 0px 3px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 3px black, 0px 0px 3px black;
     color: #000;
   }
   
@@ -46,11 +53,12 @@
   }
   
   .pet-image {
-    height:250px;
+    height: 400px;
   }
   
   .dashboard div {
     display:block;
+    text-shadow:0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black;
   }
   
   .pet-image-container {
